@@ -7,12 +7,15 @@ function playGround(){
 }
 function keyboardKeyPressed(event){
     const pressedAlphabet = event.key;
-    console.log(pressedAlphabet);
+    console.log(event.key);
+    if(pressedAlphabet === 'Escape'){
+        gameOver();
+    }
     const oldText = document.getElementById('currentAlphabet');
     const text = oldText.innerText;
 
     if(pressedAlphabet === text){
-        console.log("You rightly pressed");
+
         const currentScore = getScoreLife('score');
         const updateScore = currentScore + 1;
         setScoreLife('score', updateScore)
